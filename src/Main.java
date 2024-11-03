@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -47,5 +48,23 @@ public class Main {
             }
         }
         System.out.println(inputVal + " was found " + matchCounter + " times in the generated data set");
+
+        inputVal = SafeInput.getRangedInt(in, "Please enter another int value from 1 to 100", 1, 100);
+        //search loop that returns position of first match in array
+        System.out.println("You entered " + inputVal);
+        boolean matchFound = false;
+        for (int x = 0; x < dataPoints.length; x++) {
+            if (inputVal == dataPoints[x]) {
+                matchFound = true;
+                System.out.println(inputVal + " was first found at position " + x + " in the generated array" );
+                break;
+            }
+        }
+        if(!matchFound) {
+            System.out.println(inputVal + " was not found in the generated data set");
+        }
+
+
+        in.close();
     }
 }
