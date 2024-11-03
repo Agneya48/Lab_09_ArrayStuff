@@ -64,7 +64,39 @@ public class Main {
             System.out.println(inputVal + " was not found in the generated data set");
         }
 
+        //min search
+        int min = dataPoints[0];
+        for (int value : dataPoints) {
+            if (min > value) {
+                min = value;
+            }
+        }
+        //max search
+        int max = dataPoints[0];
+        for (int value : dataPoints) {
+            if (max < value) {
+                max = value;
+            }
+        }
+        System.out.println();
+        System.out.println("The minimum value in the data set is " + min);
+        System.out.println("the maximum value in the data set is " + max);
+
+        System.out.println();
+        System.out.println("Average of dataPoints is: " + getAverage(dataPoints));
+
 
         in.close();
+    }
+
+    public static double getAverage(int values[]) {
+        //using casting this time, so sum can be an int
+        int inputSum = 0;
+        double inputAvg = 0;
+        for (int i : values) {
+            inputSum += i;
+        }
+        inputAvg = (double) inputSum / values.length;
+        return inputAvg;
     }
 }
